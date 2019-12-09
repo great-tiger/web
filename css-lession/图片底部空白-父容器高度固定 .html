@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> 图片底部空白-父容器高度固定 </title>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="../utils/hot-reload-client.js"></script>
+    <style>
+        div {
+            margin: 10px 0;
+            border: 1px solid red;
+            height: 308px;
+        }
+        div:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div>xx<i style="width: 20px; background: #ccc; height: 30px; display:inline-block"></i></div>
+<!-- 直接为父元素设置高，解决底部空白问题 -->
+<div><!-- 这里有回车的时候，图片前面会有空间 -->
+    <img src="../images/common/0.jpg" alt="">
+</div>
+</body>
+</html>
