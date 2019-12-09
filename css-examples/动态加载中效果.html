@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <title>动态加载中效果</title>
     <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
     <script src="../utils/hot-reload-client.js"></script>
     <style>
-        .dot {
+        dot {
             display: inline-block;
             height: 1em;
             line-height: 1;
@@ -15,7 +14,7 @@
             vertical-align: -.25em;
             overflow: hidden;
         }
-        .dot::before {
+        dot::before {
             display: block;
             content: '...\A..\A.'; /* \A 换行*/
             white-space: pre-wrap;
@@ -28,6 +27,20 @@
     </style>
 </head>
 <body>
-<div class="dot"></div>
+<dot></dot>
+<!--
+<< css 世界 >> P61
+
+1)<dot>是自定义的一个标签元素，除了简约、语义化明显外，更重要的是方便向下兼
+容，IE8 等低版本浏览器不认识自定义的 HTML 标签，因此，会乖乖地显示里面默认的 3 个点， 对我们的 CSS 代码完全忽略。
+
+(2)伪元素使用::before 同时 display 设置为 block，是为了在高版本浏览器下原来的 3 个点推到最下面，不会影响 content 的 3 行内容显示，如果使用::after 怕是效果就很难实现了。
+
+(3)3 个点在第一行的目的在于兼容 IE9 浏览器，因为 IE9 浏览器认识<dot>以 及::before，但是不支持 CSS 新世界的 animation 属性，所以，为了 IE9 也能正常显示静 态的 3 个点，故而把 3 个点放在第一行。
+
+(4)这里的 white-space:pre-wrap 改成 white-space:pre 效果其实是一样的，之所 以使用 pre-wrap 作为值完全是心情使然。关于两者的差异本书后面会介绍，这里先不用深究。
+还有最后几个小技巧，首先，'\A'是不区分大小写的;其次，'\D'也能实现换行效果， 但是，要想上下行对齐，需要用在::before 伪元素上，因为 CR 是将光标移动到当前行的开头，而 LF 是将光标“垂直”移动到下一行。
+
+-->
 </body>
 </html>
