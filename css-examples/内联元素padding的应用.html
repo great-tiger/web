@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="../utils/hot-reload-client.js"></script>
+    <style>
+        body {
+            padding: 200px;
+        }
+       span {
+           padding: 50px 150px;
+           border: 1px solid #ccc;
+       }
+        .container {
+            border: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 内联元素padding左右方向影响布局，垂直方向不影响布局。 可以借助上下padding增大点击区域 -->
+    <span onclick="javascript:console.log('click');">xxx</span>11
+</div>
+
+<style>
+    a + a:before {
+        content: "";
+        font-size: 0;
+        padding: 10px 3px 1px; /*借助padding撑出空间*/
+        margin-left: 6px;
+        border-left: 1px solid gray;
+    }
+    .container2 {
+
+    }
+</style>
+<div class="container2">
+    <!--中间分隔线-->
+    <a href="">登录</a><a href="">注册</a>
+</div>
+
+</body>
+</html>
