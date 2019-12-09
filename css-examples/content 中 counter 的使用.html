@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>counter</title>
+    <script src="../utils/socket.io.js"></script>
+    <script src="../utils/hot-reload-client.js"></script>
+</head>
+<body>
+    <style>
+        .demo1 {
+            counter-reset: mycounter 2; /* 计数器的名字 设置值（默认值为0） */
+        }
+        .demo1:before {
+            content: counter(mycounter);
+        }
+    </style>
+</body>
+<p class="demo1"></p>
+</html>
