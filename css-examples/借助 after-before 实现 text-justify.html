@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>借助 after-before 实现 text-justify</title>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="../utils/hot-reload-client.js"></script>
+    <style>
+        .box {
+            margin: auto;
+            width: 256px;
+            height: 256px; /* 两端对齐关键 */
+            text-align: justify;
+            background-color: #ccc;
+        }
+
+        /* 辅助实现底对齐 */
+        .box:before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+        }
+
+        /* text-justify 对最后一行不起作用，这里就是增加最后一行 */
+        .box:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
+
+        .bar {
+            display: inline-block;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box" class="box"><!-- 这里不可以有回车 --><i class="bar" style="height: 162px; background-color: rgb(97, 17, 8);"></i>
+    <i class="bar" style="height: 42px; background-color: rgb(150, 19, 134);"></i>
+    <i class="bar" style="height: 23px; background-color: rgb(149, 104, 153);"></i>
+    <i class="bar" style="height: 94px; background-color: rgb(116, 149, 8);"></i>
+</div>
+
+</body>
+</html>
