@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>open-quote 和 close-quote </title>
+    <style>
+        /*定义 open-quote 和 close-quote*/
+
+        .ask {
+            quotes: '提问: "' '"';
+        }
+        .answer {
+            quotes: '回答: "' '"';
+        }
+        .ask:before,
+        .answer:before {
+            content: open-quote;
+        }
+
+        .ask:after,
+        .answer:after {
+            content: close-quote;
+        }
+
+        /*替代方案*/
+        .ask1:before {
+            content: '提问: "'
+        }
+        .ask1:after {
+            content: '"'
+        }
+        .answer1:before {
+            content: '回答: "'
+        }
+        .answer1:after {
+            content: '"';
+        }
+    </style>
+</head>
+<body>
+    <p class="ask">为什么 open-quote 和 close-quote 不常用</p>
+    <p class="answer">因为可替代方案更简单</p>
+    <hr>
+    <p class="ask1">为什么 open-quote 和 close-quote 不常用</p>
+    <p class="answer1">因为可替代方案更简单</p>
+</body>
+</html>
