@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>动态加载中效果</title>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="../utils/hot-reload-client.js"></script>
+    <style>
+        .dot {
+            display: inline-block;
+            height: 1em;
+            line-height: 1;
+            text-align: left;
+            vertical-align: -.25em;
+            overflow: hidden;
+        }
+        .dot::before {
+            display: block;
+            content: '...\A..\A.'; /* \A 换行*/
+            white-space: pre-wrap;
+            animation: dot 3s infinite step-start both;
+        }
+        @keyframes dot {
+            33% { transform: translateY(-2em); }
+            66% { transform: translateY(-1em); }
+        }
+    </style>
+</head>
+<body>
+<div class="dot"></div>
+</body>
+</html>
