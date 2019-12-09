@@ -9,10 +9,13 @@
 <body>
     <style>
         .demo1 {
-            counter-reset: mycounter 2; /* 计数器的名字 设置值（默认值为0） */
+            counter-reset: mycounter 2 mycounter1 3; /* 计数器的名字 设置值（默认值为0） 可以同时定义多个*/
         }
         .demo1:before {
             content: counter(mycounter);
+        }
+        .demo1:after {
+            content: counter(mycounter1);
         }
     </style>
 </body>
