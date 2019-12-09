@@ -17,7 +17,75 @@
         .demo1:after {
             content: counter(mycounter1);
         }
+
+        /* counters 嵌套计数 */
+        .reset {
+            padding-left: 20px;
+            counter-reset: wangxiaoer;
+        }
+        .counter:before {
+            content: counters(wangxiaoer, '-') '. '; /* 注意这里是 counters 对比下面一行的效果，可能更有感觉*/
+            /*content: counter(wangxiaoer);*/
+            counter-increment: wangxiaoer;
+        }
     </style>
-</body>
+
 <p class="demo1"></p>
+<hr><!-- 注意 reset 使用的地方 -->
+<div class="reset">
+    <div class="counter">我是王小二
+        <div class="reset">
+            <div class="counter">我是王小二的大儿子</div>
+            <div class="counter">我是王小二的二儿子
+                <div class="reset">
+                    <div class="counter">我是王小二的二儿子的大孙子</div>
+                    <div class="counter">我是王小二的二儿子的二孙子</div>
+                    <div class="counter">我是王小二的二儿子的小孙子</div>
+                </div>
+            </div>
+            <div class="counter">我是王小二的三儿子</div>
+        </div>
+    </div>
+    <div class="counter">我是王小三</div>
+    <div class="counter">我是王小四
+        <div class="reset">
+            <div class="counter">我是王小四的大儿子</div>
+        </div>
+    </div>
+</div>
+    <hr> <span style="color: red;"> 这是一个错误的例子，对照上面的例子，自己改正吧。 </span>
+<style>
+    .reset1 {
+        padding-left: 20px;
+        counter-reset: wangxiaoer1;
+    }
+    .counter1:before {
+        content: counters(wangxiaoer1, '-') '. ';
+        counter-increment: wangxiaoer1;
+    }
+
+    .reset1 ~ .counter1 {
+        color: #cd0000;
+    }
+</style>
+
+    <div class="reset1">
+        <div class="counter1">我是王小二</div>
+        <div class="reset1">
+            <div class="counter1">我是王小二的大儿子</div>
+            <div class="counter1">我是王小二的二儿子</div>
+            <div class="reset1">
+                <div class="counter1">我是王小二的二儿子的大孙子</div>
+                <div class="counter1">我是王小二的二儿子的二孙子</div>
+                <div class="counter1">我是王小二的二儿子的小孙子</div>
+            </div>
+            <div class="counter1">我是王小二的三儿子</div>
+        </div>
+        <div class="counter1">我是王小三</div>
+        <div class="counter1">我是王小四</div>
+        <div class="reset1">
+            <div class="counter1">我是王小四的大儿子</div>
+        </div>
+    </div>
+</body>
 </html>
